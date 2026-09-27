@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Antixor Travel & Tours — experiências de viagem cinematográficas e roteiros personalizados.">
+  <title>Antixor — Travel & Tours</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Observer.min.js"></script>
+
+  <!-- Three.js -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <div id="loader" class="loader">
+    <div class="loader-mark">A</div>
+    <span>Preparando sua próxima aventura</span>
+    <div class="loader-line"><i></i></div>
+  </div>
+
+  <canvas id="world"></canvas>
+  <div class="cursor-glow"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#">
+      <span class="brand-icon">✈</span>
+      <span>
+        <strong>Antixor</strong>
+        <small>TRAVEL & TOURS</small>
+      </span>
+    </a>
+
+    <nav class="nav">
+      <a href="#inicio">Início</a>
+      <a href="#destinos">Destinos</a>
+      <a href="#pacotes">Pacotes</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+    <a class="header-cta magnetic" href="#contato">Planeje sua viagem <span>→</span></a>
+    <button class="menu" aria-label="Abrir menu"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-bg">
+        <img src="assets/travel-reference.png" alt="Paisagem tropical de viagem" class="hero-image">
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow hero-reveal"><span></span> EXPLORE O MUNDO</p>
+        <h1 class="hero-title">
+          <span class="line hero-reveal">Sua Próxima</span>
+          <span class="line accent hero-reveal">Aventura</span>
+          <span class="line hero-reveal">Te Espera</span>
+        </h1>
+        <p class="hero-copy hero-reveal">
+          Descubra destinos incríveis, pacotes exclusivos e experiências inesquecíveis
+          planejadas para transformar cada viagem em uma história.
+        </p>
+        <div class="hero-actions hero-reveal">
+          <a href="#destinos" class="btn btn-primary magnetic">Explorar destinos <b>→</b></a>
+          <button class="play-btn" id="playStory"><span>▶</span> Assistir à história</button>
+        </div>
+      </div>
+
+      <div class="hero-side-note">
+        <span>SCROLL</span>
+        <i></i>
+      </div>
+
+      <div class="floating-location glass">
+        <div class="location-avatar">◉</div>
+        <div><strong>Ilhas Phi Phi</strong><small>Tailândia</small></div>
+      </div>
+
+      <div class="search-card glass">
+        <div class="search-field"><span>⌖</span><small>Destino</small><strong>Para onde?</strong></div>
+        <div class="search-field"><span>□</span><small>Check-in</small><strong>Selecione</strong></div>
+        <div class="search-field"><span>□</span><small>Check-out</small><strong>Selecione</strong></div>
+        <div class="search-field"><span>♧</span><small>Viajantes</small><strong>2 Adultos</strong></div>
+        <button class="search-btn">⌕&nbsp; Buscar</button>
+      </div>
+    </section>
+
+    <section class="benefits section-light">
+      <article><span>✈</span>
+        <div><strong>Melhor preço garantido</strong>
+          <p>Ofertas exclusivas para sua viagem.</p>
+        </div>
+      </article>
+      <article><span>♢</span>
+        <div><strong>Seguro e confiável</strong>
+          <p>Sua tranquilidade é nossa prioridade.</p>
+        </div>
+      </article>
+      <article><span>◌</span>
+        <div><strong>Suporte 24/7</strong>
+          <p>Estamos sempre ao seu lado.</p>
+        </div>
+      </article>
+      <article><span>☆</span>
+        <div><strong>Guias especialistas</strong>
+          <p>Experiências locais autênticas.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="destinations section-light" id="destinos">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow dark"><span></span> DESTINOS POPULARES</p>
+          <h2>Os destinos mais<br><em>incríveis do mundo.</em></h2>
+          <p>Das praias paradisíacas às cidades históricas, escolha o lugar que vai marcar sua próxima história.</p>
+        </div>
+        <div class="scribble">Explore<br>Mais ↗</div>
+        <a href="#" class="text-link">Ver todos os destinos →</a>
+      </div>
+
+      <div class="destination-grid">
+        <article class="destination-card" data-speed="0.06">
+          <div class="card-image bali"></div>
+          <div class="card-info"><strong>Bali</strong><small>Indonésia</small><span>→</span></div>
+        </article>
+        <article class="destination-card tall" data-speed="-0.04">
+          <div class="card-image santorini"></div>
+          <div class="card-info"><strong>Santorini</strong><small>Grécia</small><span>→</span></div>
+        </article>
+        <article class="destination-card" data-speed="0.05">
+          <div class="card-image dubai"></div>
+          <div class="card-info"><strong>Dubai</strong><small>Emirados Árabes</small><span>→</span></div>
+        </article>
+        <article class="destination-card tall" data-speed="-0.03">
+          <div class="card-image swiss"></div>
+          <div class="card-info"><strong>Suíça</strong><small>Alpes Suíços</small><span>→</span></div>
+        </article>
+        <article class="destination-card" data-speed="0.04">
+          <div class="card-image maldives"></div>
+          <div class="card-info"><strong>Maldivas</strong><small>Oceano Índico</small><span>→</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="featured section-light" id="pacotes">
+      <div class="featured-media reveal-x">
+        <div class="media-photo dubai-featured" style="background-image: url('assets/dubai-beach.jpg');"></div>
+        <span class="stamp">ANTIXOR<br><b>TRAVEL</b></span>
+      </div>
+      <div class="featured-copy reveal-x-right">
+        <p class="eyebrow dark"><span></span> PACOTE EM DESTAQUE</p>
+        <h2>7 dias no<br><em>paraíso de Dubai.</em></h2>
+        <p>Arranha-céus imponentes, resorts de luxo no Golfo Pérsico, praias exclusivas e uma experiência inesquecível
+          criada para você.</p>
+        <div class="package-meta"><span>◷ 7 Dias</span><span>⌖ Dubai, Emirados Árabes</span></div>
+        <div class="price"><small>A partir de</small><strong>R$ 7.899</strong><small>por pessoa</small></div>
+        <a href="#contato" class="btn btn-primary magnetic">Ver pacote <b>→</b></a>
+      </div>
+    </section>
+
+    <section class="story" id="experiencia">
+      <div class="story-image">
+        <div class="story-photo"></div>
+        <div class="story-content">
+          <p class="eyebrow"><span></span> MAIS QUE VIAGENS</p>
+          <h2>Não é apenas uma viagem,<br><em>é uma história.</em></h2>
+          <p>Cada destino tem o poder de transformar momentos em memórias que permanecem para sempre.</p>
+          <button class="play-btn light" id="playStory2"><span>▶</span> Nossa história</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials section-light">
+      <div class="section-head compact">
+        <div>
+          <p class="eyebrow dark"><span></span> HISTÓRIAS REAIS</p>
+          <h2>Viajantes que<br><em>viveram a experiência.</em></h2>
+        </div>
+        <a href="#" class="text-link">Ver depoimentos →</a>
+      </div>
+      <div class="testimonial-grid">
+        <article class="testimonial">
+          <div class="avatar a1"></div><strong>Carla Menezes</strong><small>São Paulo, BR</small>
+          <div class="stars">★★★★★</div>
+          <p>“Uma das viagens mais incríveis da minha vida. Tudo perfeitamente organizado.”</p>
+        </article>
+        <article class="testimonial">
+          <div class="avatar a2"></div><strong>Rafael Costa</strong><small>Rio de Janeiro, BR</small>
+          <div class="stars">★★★★★</div>
+          <p>“Destinos incríveis e uma experiência que superou todas as expectativas.”</p>
+        </article>
+        <article class="testimonial">
+          <div class="avatar a3"></div><strong>Emily Carter</strong><small>Toronto, CA</small>
+          <div class="stars">★★★★★</div>
+          <p>“The support was exceptional and every detail felt carefully planned.”</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contato">
+      <div class="final-bg"></div>
+      <div class="final-content">
+        <p class="eyebrow"><span></span> PRONTO PARA SUA PRÓXIMA VIAGEM?</p>
+        <h2>Vamos planejar<br>sua <em>aventura dos sonhos.</em></h2>
+        <p>Fale com nossos especialistas e descubra destinos, pacotes e experiências personalizadas para você.</p>
+        <a class="btn btn-primary magnetic" href="mailto:hello@antixor.com">Falar com um especialista <b>→</b></a>
+      </div>
+      <div class="final-note">O mundo<br><em>te espera.</em> ↗</div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand"><span class="brand-icon">✈</span><span><strong>Antixor</strong><small>TRAVEL &
+          TOURS</small></span></div>
+    <p>Experiências que atravessam fronteiras.</p>
+    <span>© 2026 Antixor Travel & Tours</span>
+  </footer>
+
+  <div class="story-modal" id="storyModal">
+    <button class="modal-close" id="closeModal">×</button>
+    <div><span>ANTIXOR</span>
+      <h2>O mundo é grande.<br>Vá viver.</h2>
+      <p>Uma viagem começa muito antes do embarque — começa quando você decide ir.</p>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
